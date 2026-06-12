@@ -1,0 +1,82 @@
+import streamlit as st
+from config.setup_page import logo
+logo()
+
+
+# --------------------
+# Import halaman model
+# --------------------
+
+from kuliah.numerik.rf_newton import rf_newton_show
+
+
+# --------------------
+# Database materi
+# --------------------
+
+kuliah = {
+
+    "Numerik": [
+
+        "Newton",
+        "Interpolasi",
+        "Integral Numerik",
+        "Turunan Numerik"
+    ],
+
+    "Optimisasi": [
+        "Golden Section",
+        "Gauss Newton"
+
+    ],
+
+    "Pemodelan": [
+        "Eksponensial",
+        "Predator-Prey"
+    ]
+
+}
+
+# --------------------
+# Judul
+# --------------------
+
+st.title("Pengajaran")
+
+# --------------------
+# Topik
+# --------------------
+
+topik = st.radio(
+    "Pilih Kuliah",
+    list(kuliah.keys()),
+    horizontal=True
+)
+
+# --------------------
+# Daftar model tersedia
+# --------------------
+
+st.subheader("Materi yang tersedia")
+
+for item in kuliah[topik]:
+    st.write("* ", item)
+
+# --------------------
+# Pilih materi perkuliahan
+# --------------------
+
+materi = st.selectbox(
+    "Pilih Materi",
+    kuliah[topik]
+)
+
+st.divider()
+
+# --------------------
+# Tampilkan model
+# --------------------
+if materi == "Newton":
+    rf_newton_show()
+#elif model == "SCH Kontrol":
+#    show_sch_k()   

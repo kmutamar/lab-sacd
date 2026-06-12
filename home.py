@@ -5,7 +5,7 @@ logo()
 #-------------------
 st.title("System Analysis & Control Design Laboratory")
 st.subheader("Jurusan Matematika, FMIPA, Universitas Riau")
-st.image("assets/LOGO-SACD.png",width=200)
+st.image("assets/LOGO-SACD.PNG",width=200)
 #-------------------
 st.divider()
 tabhome, tabVMT, tabriset,tabMK,tabmhs = st.tabs(

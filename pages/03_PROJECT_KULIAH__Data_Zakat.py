@@ -110,7 +110,9 @@ with tab3:
     a=hasil[0]
     st.metric('Nilai a = ',a)
     st.write('Hampiran = ',K,' exp(',a,'t)')
-    st.metric('Nilai error = ',fungsi_error_zakat(a,K,data_t,data_f))
+    
+    nilaierror=fungsi_error_zakat(a,K,data_t,data_f)
+    st.metric('Nilai error = ',f'{nilaierror:.6e}')
     
     st.divider()
     st.header('Perbandingan data dan hampiran')

@@ -56,16 +56,36 @@ with tab2:
     st.write('Kurva data menunjukkan bahwa fungsi mengikuti pola eksponensial')
     st.markdown(r"""
         Fungsi yang dipilih adalah
-        $$ f(t)=K\exp{at}$$
+        $$ f(t)=K\exp{(at)}$$
         dengan $K,a$ adalah parameter yang perlu dicari berdasarkan data. 
         Oleh karena ada dua parameter, sementara metode dichotomous hanya untuk optimisasi peubah tunggal,
         maka nilai $K$ ditentukan secara manual. 
     """)
+    
+    st.markdown(r"""
+        Penentuan $K$ digunakaan dari kondisi $t=0$. 
+        Kondisi ini mengasumsikan di titik awal, hampiran dan data bernilai sama.
+        Menggunakan $t=0$ diperoleh
+        $$
+        f(0)=K=68.39
+        $$
+        Jadi, nilai $K$ yang dipakai adalah $K=68.39$
+    
+    """)
 
 with tab3:
+    st.mardown(r"""
+        Simulasi dilakukan dengan parameter:
+        \begin{array}{lll}
+            interval &:& [0,10]\\
+            tolmax &:& 1e-6\\
+        \end{array}
+    
+    """)
     hasil=dichotomous_pon(fungsi_error_zakat,[0,10],1e-6,data_t,data_f)
     a=hasil[0]
-    st.write('a = ',a)
+    st.divider()
+    st.metric('Nilai a = ',a)
     st.write('Hampiran = 68.39 exp(',a,'t)')
     def f_tebakan(k,a,t):
         return k*np.exp(a*t)

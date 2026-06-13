@@ -68,7 +68,10 @@ def sch_show():
         t=np.linspace(0,tf,tf*int(1e2))
         #beta = st.number_input(r"$\beta$ = ",value=0.2)
         #gamma = st.number_input(r"$\gamma$ = ",value=0.1)
-        
+        #s0 = st.number_input("S(0)",value=0.9)
+        i0 = st.number_input(r"$I(0)$",value=0.1)
+        r0=0
+        s0=1-i0
         col1, col2 = st.columns([1,2])
         with col1:
             beta = st.slider(
@@ -85,10 +88,6 @@ def sch_show():
                 value=0.2,
                 step=0.01
             )
-        #s0 = st.number_input("S(0)",value=0.9)
-        i0 = st.number_input(r"$I(0)$",value=0.1)
-        r0=0
-        s0=1-i0
         y=euler(sir,[s0,i0,r0],t,[beta,gamma])   
         #
         with col2:

@@ -40,7 +40,7 @@ with tab1:
     Era Napra Tilopa Sihombing, Mahiroh, Rado Yendra, Arisman Adnan, 
     The Analysist Impacts of Covid-19 on Zakat, Revenue in Indonesia using an Exponential, Smoothing Model, 
     *International Journal of Mathematics Trends and Technology*, 
-    Vol 68, Issue 5, 2022.'
+    Vol 68, Issue 5, 2022.
    """)
     st.header('Data')
     #st.table(df)

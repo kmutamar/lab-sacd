@@ -69,8 +69,9 @@ def sch_show():
         i0 = st.number_input(r"$I(0)$",value=0.1)
         r0=0
         s0=1-i0
+        tf=50
         if st.button("Proses"):
-            t=np.linspace(0,20,1000)
+            t=np.linspace(0,tf,tf*int(1e2))
             y=euler(sir,[s0,i0,r0],t,[beta,gamma])   
             st.header("Model SIR Dasar")
             fig, ax = plt.subplots(figsize=(4,2))

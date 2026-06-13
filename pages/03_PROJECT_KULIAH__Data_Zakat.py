@@ -87,17 +87,21 @@ with tab3:
         \end{array}
         $$
     """)
+    
+    st.divider()
+    st.header('Nilai parameter')
     hasil=dichotomous_pon(fungsi_error_zakat,[0,10],1e-6,data_t,data_f)
     a=hasil[0]
-    st.divider()
     st.metric('Nilai a = ',a)
     st.write('Hampiran = 68.39 exp(',a,'t)')
+    
+    st.divider()
+    st.header('Perbandingan data dan hampiran')
     def f_tebakan(k,a,t):
         return k*np.exp(a*t)
     k=68.39
     t=np.arange(0,20)
     fungsi_tebakan=f_tebakan(k,a,t)
-    
     fig, ax = plt.subplots(figsize=(6,4))
 
     ax.plot(data_t,data_f,'or',label='Data')

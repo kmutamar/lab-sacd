@@ -68,7 +68,7 @@ def sch_show():
         #beta = st.number_input(r"$\beta$ = ",value=0.2)
         #gamma = st.number_input(r"$\gamma$ = ",value=0.1)
         
-        col1, col2 = st.columns(2)
+        col1, col2 = st.columns([1,2])
         with col1:
             beta = st.slider(
                 r"$\beta$",
@@ -77,7 +77,7 @@ def sch_show():
                 value=0.4,
                 step=0.01
             )
-        with col2:
+        
             gamma = st.slider(
                 r"$\gamma$",
                 min_value=0.0,
@@ -91,15 +91,17 @@ def sch_show():
         s0=1-i0
         y=euler(sir,[s0,i0,r0],t,[beta,gamma])   
         st.header("Model SIR Dasar")
-        fig, ax = plt.subplots(figsize=(4,2))
-        ax.plot(t,y[:,0],'b-',label='S(t)')
-        ax.plot(t,y[:,1],'r-',label='I(t)')
-        ax.plot(t,y[:,2],'m-',label='R(t)')
-        ax.set_xlabel("waktu")
-        ax.set_ylabel("populasi")
-        ax.legend()
-        ax.grid(True)
-        st.pyplot(fig)
+        with col2:
+            fig, ax = plt.subplots(figsize=(4,2))
+            ax.plot(t,y[:,0],'b-',label='S(t)')
+            ax.plot(t,y[:,1],'r-',label='I(t)')
+            ax.plot(t,y[:,2],'m-',label='R(t)')
+            ax.set_xlabel("waktu")
+            ax.set_ylabel("populasi")
+            ax.legend()
+            ax.grid(True)
+            fig.tight_layout()
+            st.pyplot(fig)
         _="""
         if st.button("Proses"):
             t=np.linspace(0,tf,tf*int(1e2))

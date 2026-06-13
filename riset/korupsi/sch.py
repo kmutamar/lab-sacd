@@ -63,6 +63,7 @@ def sch_show():
       
 
     with tab3:
+        st.header("Model SIR Dasar")
         tf=50
         t=np.linspace(0,tf,tf*int(1e2))
         #beta = st.number_input(r"$\beta$ = ",value=0.2)
@@ -77,7 +78,6 @@ def sch_show():
                 value=0.4,
                 step=0.01
             )
-        
             gamma = st.slider(
                 r"$\gamma$",
                 min_value=0.0,
@@ -90,7 +90,7 @@ def sch_show():
         r0=0
         s0=1-i0
         y=euler(sir,[s0,i0,r0],t,[beta,gamma])   
-        st.header("Model SIR Dasar")
+        #
         with col2:
             fig, ax = plt.subplots(figsize=(4,2))
             ax.plot(t,y[:,0],'b-',label='S(t)')

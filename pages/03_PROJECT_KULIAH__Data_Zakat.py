@@ -76,6 +76,14 @@ with tab2:
         Jadi, nilai $K$ yang dipakai adalah $K=68.39$
     
     """)
+    
+    st.markdown(r"""
+        Fungsi error yang digunakan adalah jumlahan kuadrat error,
+        $$
+            E=\dfrac{1}{n}\sum\limits_{i=1}^{n}{(f(t_i)-d_i)^2}
+        $$
+        dengan $d_i$ adalah data ke-$i$ dan $n$ adalah banyak data.
+    """)
 
 with tab3:
     st.markdown(r"""

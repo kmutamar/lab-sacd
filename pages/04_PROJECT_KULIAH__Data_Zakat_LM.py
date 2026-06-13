@@ -140,7 +140,7 @@ with tab3:
         param[1]
     )
 
-    error = float(0.5*(res.T @ res))
+    error = float(0.5*np.sum(res**2))
 
     st.metric(
         'Nilai Error',

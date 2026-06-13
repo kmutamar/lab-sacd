@@ -53,8 +53,14 @@ with tab1:
     st.dataframe(df)
 
 with tab2:
-    st.title("Disini halaman pendekatan")
-    #st.write(newton)
+    st.write('Kurva data menunjukkan bahwa fungsi mengikuti pola eksponensial')
+    st.markdown(r"""
+        Fungsi yang dipilih adalah
+        $$ f(t)=K\exp{at}$$
+        dengan $K,a$ adalah parameter yang perlu dicari berdasarkan data. 
+        Oleh karena ada dua parameter, sementara metode dichotomous hanya untuk optimisasi peubah tunggal,
+        maka nilai $K$ ditentukan secara manual. 
+    """)
 
 with tab3:
     hasil=dichotomous_pon(fungsi_error_zakat,[0,10],1e-6,data_t,data_f)

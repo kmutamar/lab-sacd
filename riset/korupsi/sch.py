@@ -63,13 +63,40 @@ def sch_show():
       
 
     with tab3:
-        beta = st.number_input(r"$\beta$ = ",value=0.2)
-        gamma = st.number_input(r"$\gamma$ = ",value=0.1)
+        tf=50
+        t=np.linspace(0,tf,tf*int(1e2))
+        #beta = st.number_input(r"$\beta$ = ",value=0.2)
+        #gamma = st.number_input(r"$\gamma$ = ",value=0.1)
+        beta = st.slider(
+            r"$\beta$",
+            min_value=0.0,
+            max_value=0.9,
+            value=0.4,
+            step=0.01
+        )
+        gamma = st.slider(
+            r"$\gamma$",
+            min_value=0.0,
+            max_value=0.9,
+            value=0.2,
+            step=0.01
+        )
         #s0 = st.number_input("S(0)",value=0.9)
         i0 = st.number_input(r"$I(0)$",value=0.1)
         r0=0
         s0=1-i0
-        tf=50
+        y=euler(sir,[s0,i0,r0],t,[beta,gamma])   
+        st.header("Model SIR Dasar")
+        fig, ax = plt.subplots(figsize=(4,2))
+        ax.plot(t,y[:,0],'b-',label='S(t)')
+        ax.plot(t,y[:,1],'r-',label='I(t)')
+        ax.plot(t,y[:,2],'m-',label='R(t)')
+        ax.set_xlabel("waktu")
+        ax.set_ylabel("populasi")
+        ax.legend()
+        ax.grid(True)
+        st.pyplot(fig)
+        _="""
         if st.button("Proses"):
             t=np.linspace(0,tf,tf*int(1e2))
             y=euler(sir,[s0,i0,r0],t,[beta,gamma])   
@@ -83,4 +110,5 @@ def sch_show():
             ax.legend()
             ax.grid(True)
             st.pyplot(fig)
+        """
            

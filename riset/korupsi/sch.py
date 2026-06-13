@@ -22,6 +22,7 @@ def sch_show():
     )
 
     with tab1:
+        st.header('Dalam pengembangan')
         st.markdown(""" Model Dasar Penyebaran Perilaku Korup""")
         st.latex(r'''
         \left\{
@@ -43,6 +44,7 @@ def sch_show():
     """)
 
     with tab2:
+        st.header('Dalam pengembangan')
         st.header("Titik Ekuilibrium")
         st.markdown(r""" Titik ekuilibrium bebas penyakit adalah
         $$

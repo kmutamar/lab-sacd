@@ -28,7 +28,7 @@ def rf_newton_show():
         #st.write(newton)
 
     with tab2:
-        st.markdown(""" 
+        st.markdown(r""" 
         Diberikan fungsi $f(x)$. 
         Metode Newton untuk menentukan akar solusi $f(x)=0$ diberikan oleh
         $$

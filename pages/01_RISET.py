@@ -7,6 +7,7 @@ logo()
 # --------------------
 
 from riset.korupsi.sch import sch_show
+from riset.korupsi.sch_k import sch_k_show
 #from riset.korupsi.sch import show_sech
 #from riset.korupsi.sech import show_sech_k
 
@@ -20,8 +21,8 @@ riset_model = {
 
         "SCH",
         "SCH Kontrol",
-        "SECH",
-        "SECH Kontrol"
+        #"SECH",
+        #"SECH Kontrol"
     ],
 
     "Predator-Prey": [
@@ -78,5 +79,5 @@ st.divider()
 # --------------------
 if model == "SCH":
     sch_show()
-#elif model == "SCH Kontrol":
-#    show_sch_k()  
+elif model == "SCH Kontrol":
+    sch_k_show()  

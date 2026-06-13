@@ -35,7 +35,7 @@ tab1, tab2, tab3 = st.tabs(
 
 with tab1:
     st.title("Data dan Kurva")
-    st.write("""Sumber data:  Ria Indah Sari, 
+    st.write("""**Sumber data**:  Ria Indah Sari, 
     Tomi Z., 
     Era Napra Tilopa Sihombing, Mahiroh, Rado Yendra, Arisman Adnan, 
     The Analysist Impacts of Covid-19 on Zakat, Revenue in Indonesia using an Exponential, Smoothing Model, 

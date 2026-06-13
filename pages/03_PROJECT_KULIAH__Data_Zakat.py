@@ -34,9 +34,14 @@ tab1, tab2, tab3 = st.tabs(
 )
 
 with tab1:
-    st.title("Disini halaman data dan kurva")
-    #st.write(newton)
-
+    st.title("Data dan Kurva")
+    st.header('Data')
+    #st.table(df)
+    st.dataframe(df)
+    
+    
+    st.divider()
+    st.header('Kurva')
     fig, ax = plt.subplots(figsize=(6,4))
 
     ax.plot(data_t,data_f,'or',label='Data')
@@ -48,9 +53,8 @@ with tab1:
     ax.legend()
 
     st.pyplot(fig)
+    st.divider()
     
-    #st.table(df)
-    st.dataframe(df)
 
 with tab2:
     st.write('Kurva data menunjukkan bahwa fungsi mengikuti pola eksponensial')
@@ -75,12 +79,13 @@ with tab2:
 
 with tab3:
     st.markdown(r"""
-        Simulasi dilakukan dengan parameter:
+        Simulasi dilakukan menggunakan dichotomous, dengan parameter:
+        $$
         \begin{array}{lll}
             interval &:& [0,10]\\
             tolmax &:& 1e-6\\
         \end{array}
-    
+        $$
     """)
     hasil=dichotomous_pon(fungsi_error_zakat,[0,10],1e-6,data_t,data_f)
     a=hasil[0]

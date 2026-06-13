@@ -74,7 +74,7 @@ with tab2:
     """)
 
 with tab3:
-    st.mardown(r"""
+    st.markdown(r"""
         Simulasi dilakukan dengan parameter:
         \begin{array}{lll}
             interval &:& [0,10]\\

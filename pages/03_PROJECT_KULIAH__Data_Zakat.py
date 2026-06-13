@@ -90,18 +90,19 @@ with tab3:
     
     st.divider()
     st.header('Nilai parameter')
-    hasil=dichotomous_pon(fungsi_error_zakat,[0,10],1e-6,data_t,data_f)
+    K=68.39
+    hasil=dichotomous_pon(fungsi_error_zakat,[0,10],1e-6,data_t,data_f,K)
     a=hasil[0]
     st.metric('Nilai a = ',a)
-    st.write('Hampiran = 68.39 exp(',a,'t)')
+    st.write('Hampiran = ',K,' exp(',a,'t)')
+    st.metric('Nilai error = ',fungsi_error_zakat(a,K,data_t,data_f))
     
     st.divider()
     st.header('Perbandingan data dan hampiran')
     def f_tebakan(k,a,t):
         return k*np.exp(a*t)
-    k=68.39
     t=np.arange(0,20)
-    fungsi_tebakan=f_tebakan(k,a,t)
+    fungsi_tebakan=f_tebakan(K,a,t)
     fig, ax = plt.subplots(figsize=(6,4))
 
     ax.plot(data_t,data_f,'or',label='Data')

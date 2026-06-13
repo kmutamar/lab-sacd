@@ -1,6 +1,6 @@
 import numpy as np
 import timeit
-def dichotomous_pon(fungsi_error,init,tolmax,data_t,data_f):
+def dichotomous_pon(fungsi_error,init,tolmax,data_t,data_f,K):
     awal=timeit.default_timer()
     epsilon=1e-10
     itmax=int(1e2)
@@ -8,7 +8,7 @@ def dichotomous_pon(fungsi_error,init,tolmax,data_t,data_f):
     for i in range(itmax):
         an=0.5*(a+b-epsilon)
         bn=0.5*(a+b+epsilon)
-        f=[fungsi_error(an,data_t,data_f),fungsi_error(bn,data_t,data_f)]
+        f=[fungsi_error(an,K,data_t,data_f),fungsi_error(bn,K,data_t,data_f)]
         if f[0]<f[1]:
             b=bn
         elif f[0]>f[1]:

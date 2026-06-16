@@ -49,7 +49,7 @@ tolmax=1e-30
 # Mendefinisikan area
 a=-1.5
 b=1.5
-n=10000
+n=1000
 sol,waktu=newton_basin_func(f,df,a,b,n,tolmax,itmax)
 st.write('partisi = ',np.shape(sol))
 st.write('waktu komputasi = ',waktu)

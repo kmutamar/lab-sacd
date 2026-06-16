@@ -1,0 +1,19 @@
+import streamlit as st
+import numpy as np
+import matplotlib.pyplot as plt
+# Menyiapkan vektor warna
+def gambar(x,n,akar,domain,tolmax):
+    x2=np.reshape(x,[n*n,1])
+    x2c=np.zeros([n*n,1])
+    for i in range(0,np.shape(akar)[0]):
+        x2c[abs(x2-akar[i])<=tolmax]=i+1
+    x2c=np.reshape(x2c,[n,n])
+    
+    # tampil gambar
+    fig, ax = plt.subplots(figsize=(6,4))
+    ax.imshow(x2c,cmap='hsv',extent=domain)
+    ax.set_xlabel('Waktu')
+    ax.set_ylabel('Zakat')
+    ax.grid(True)
+    ax.legend()
+    st.pyplot(fig)      

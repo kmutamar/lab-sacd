@@ -54,9 +54,6 @@ st.markdown(r"""
 """)
 
 st.divider()
-st.header('Simulasi membutuhkan proses, harap tunggu....')
-
-    
 # simulasi
 itmax=40
 tolmax=1e-100
@@ -89,6 +86,7 @@ with st.container(border=True):
 
 #--- proses 
 if st.button("Proses Basin"):
+    st.header('Simulasi membutuhkan proses, harap tunggu....')
     # pilih fungsi
     if fungsi == r"$z^4-1$":
         f=f2

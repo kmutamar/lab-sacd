@@ -55,8 +55,8 @@ st.header('Simulasi membutuhkan proses, harap tunggu....')
 
     
 # simulasi
-itmax=100
-tolmax=1e-30
+itmax=40
+tolmax=1e-100
 # Mendefinisikan area
 a=-1.5
 b=1.5

@@ -104,7 +104,7 @@ if st.button("Proses Basin"):
     if metode == "Newton":
         sol,waktu=newton_basin_func(f,df,a,b,n,tolmax,itmax)
     elif metode=="Halley":
-        sol,waktu=halley_basin_func(f,df,a,b,n,tolmax,itmax)        
+        sol,waktu=halley_basin_func(f,df,d2f,a,b,n,tolmax,itmax)        
     elif metode=="AM-Newton":
         sol,waktu=newton_am_basin_func(f,df,a,b,n,tolmax,itmax)
     else:

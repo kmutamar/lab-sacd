@@ -1,25 +1,73 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-# Menyiapkan vektor warna
-def gambar(x,n,akar,domain,tolmax):
-    #x2=np.reshape(x,[n*n,1])
-    #x2c=np.zeros([n*n,1])
-    #for i in range(0,np.shape(akar)[0]):
-    #    x2c[abs(x2-akar[i])<=tolmax]=i+1
-    #x2c=np.reshape(x2c,[n,n])
-    st.write(np.shape(x))
-    x2=np.reshape(x,[n*n])
+from matplotlib.colors import ListedColormap
+
+def gambar(x,n,akar,domain,tolwarna=1e-8):
+
+    # ubah menjadi vektor
+    x2 = x.ravel()
+
+    # daftar akar
     akar_np = np.array(akar)
-    jarak = np.abs(x2[:,None] - akar_np[None,:])
-    x2c = np.argmin(jarak,axis=1)+1
-    x2c = np.reshape(x2c,[n,n])
-    
-    # tampil gambar
-    fig, ax = plt.subplots(figsize=(6,4))
-    ax.imshow(x2c,cmap='hsv',extent=domain)
-    ax.set_xlabel('$Re{(x)}$')
-    ax.set_ylabel('$Im{(x)}$')
-    ax.grid(True)
-    #ax.legend()
-    st.pyplot(fig)      
+
+    # jarak setiap titik ke semua akar
+    jarak = np.abs(
+        x2[:,None] - akar_np[None,:]
+    )
+
+    # akar terdekat
+    idx = np.argmin(
+        jarak,
+        axis=1
+    )
+
+    # jarak minimum
+    mindist = np.min(
+        jarak,
+        axis=1
+    )
+
+    # warna awal = 0
+    x2c = np.zeros(
+        len(x2),
+        dtype=int
+    )
+
+    # hanya yang cukup dekat akar
+    mask = mindist < tolwarna
+
+    x2c[mask] = idx[mask] + 1
+
+    # kembali ke matriks
+    x2c = np.reshape(
+        x2c,
+        [n,n]
+    )
+
+    # colormap diskrit
+    cmap = ListedColormap([
+        'black',     # gagal konvergen
+        'red',
+        'green',
+        'blue',
+        'yellow',
+        'cyan',
+        'magenta',
+        'orange'
+    ])
+
+    # gambar
+    fig, ax = plt.subplots(figsize=(6,6))
+
+    ax.imshow(
+        x2c,
+        cmap=cmap,
+        extent=domain,
+        origin='lower'
+    )
+
+    ax.set_xlabel(r'$Re(z)$')
+    ax.set_ylabel(r'$Im(z)$')
+    ax.grid(False)
+    st.pyplot(fig)

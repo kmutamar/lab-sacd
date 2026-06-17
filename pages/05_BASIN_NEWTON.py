@@ -9,10 +9,12 @@ logo()
 from kuliah.project.basin.fungsi1 import (
     f as f1,
     df as df1,
+    d2f as d2f1,
     akar as akar1)
 from kuliah.project.basin.fungsi2 import (
     f as f2,
     df as df2,
+    d2f as d2f2,
     akar as akar2)
 from kuliah.project.basin.gambar import gambar
 from kuliah.project.basin.newton_basin import newton_basin_func
@@ -78,6 +80,7 @@ with st.container(border=True):
             "Metode",
             [
                 "Newton",
+                "Halley",
                 "AM-Newton",
                 "GM-Newton",
             ]
@@ -89,10 +92,12 @@ if st.button("Proses Basin"):
     if fungsi == r"$z^4-1$":
         f=f2
         df=df2
+        d2f=d2f2
         akar=akar2
     else:
         f=f1
         df=df1
+        d2f=d2f1
         akar=akar1
     # metode
     if metode == "Newton":

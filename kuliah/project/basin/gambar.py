@@ -16,7 +16,7 @@ def gambar(x,n,akar,domain,tolmax):
     
     # tampil gambar
     fig, ax = plt.subplots(figsize=(6,4))
-    ax.imshow(x2c,cmap='jet',extent=domain)
+    ax.imshow(x2c,cmap='hsv',extent=domain)
     ax.set_xlabel('$Re{(x)}$')
     ax.set_ylabel('$Im{(x)}$')
     ax.grid(True)

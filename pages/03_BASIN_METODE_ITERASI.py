@@ -61,8 +61,8 @@ st.header('Simulasi membutuhkan proses, harap tunggu....')
 itmax=40
 tolmax=1e-100
 # Mendefinisikan area
-a=-1.5
-b=1.5
+a=-0.5
+b=0.5
 n=1000
 
 with st.container(border=True):

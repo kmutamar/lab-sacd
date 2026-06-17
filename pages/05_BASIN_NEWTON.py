@@ -44,6 +44,31 @@ st.markdown(r"""
 
 st.divider()
 st.header('Simulasi membutuhkan proses, harap tunggu....')
+with st.container(border=True):
+    st.subheader("Konfigurasi Basin")
+    col1, col2 = st.columns(2)
+    with col1:
+        fungsi = st.radio(
+            "Fungsi",
+            [
+                r"$x^4-1$",
+                r"$x^4+1$"
+            ]
+        )
+    with col2:
+        metode = st.radio(
+            "Metode",
+            [
+                "Newton",
+                "AM-GM Newton"
+            ]
+        )
+
+    proses = st.button(
+        "Proses Basin",
+        use_container_width=True
+    )
+    
 # simulasi
 itmax=40
 tolmax=1e-30

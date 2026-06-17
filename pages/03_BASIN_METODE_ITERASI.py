@@ -55,7 +55,7 @@ st.markdown(r"""
 
 st.divider()
 # simulasi
-itmax=40
+itmax=100
 tolmax=1e-100
 # Mendefinisikan area
 a=-1.5
@@ -114,6 +114,4 @@ if st.button("Proses Basin"):
     # Memanggil fungsi gambar
     domain=[a,b,a,b]
     gambar(sol,n,akar,domain,tolmax)
-    
-    
   

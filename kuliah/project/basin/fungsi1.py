@@ -1,8 +1,10 @@
 import numpy as np
 # Mendefinisikan fungsi
-f=lambda x:x**4+1
-df=lambda x:4*x**3
-akar=[(1/2)*np.sqrt(2)+(1/2*j)*np.sqrt(2), 
--(1/2)*np.sqrt(2)+(1/2*j)*np.sqrt(2), 
--(1/2)*np.sqrt(2)-(1/2*j)*np.sqrt(2), 
-(1/2)*np.sqrt(2)-(1/2*j)*np.sqrt(2)]
+f=lambda x:x**6-1
+df=lambda x:6*x**5
+akar=[1.0, 
+    -1.0, 
+    0.5000000000-0.8660254040j, 
+    -0.5000000000+0.8660254040j, 
+    0.5000000000+0.8660254040j, 
+    -0.5000000000-0.8660254040j]

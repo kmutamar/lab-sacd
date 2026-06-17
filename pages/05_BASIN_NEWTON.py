@@ -6,10 +6,18 @@ import time
 from config.setup_page import logo
 logo()
 
-from kuliah.project.basin.fungsi1 import f1,df1,akar1
-from kuliah.project.basin.fungsi2 import f2,df2,akar2
+from kuliah.project.basin.fungsi1 import (
+    f as f1,
+    df as df1,
+    akar as akar1)
+from kuliah.project.basin.fungsi2 import (
+    f as f2,
+    df as df2,
+    akar as akar2)
 from kuliah.project.basin.gambar import gambar
 from kuliah.project.basin.newton_basin import newton_basin_func
+from kuliah.project.basin.newton_GM_basin import newton_gm_basin_func
+from kuliah.project.basin.newton_AM_basin import newton_am_basin_func
 
 
 # --------------------
@@ -44,33 +52,10 @@ st.markdown(r"""
 
 st.divider()
 st.header('Simulasi membutuhkan proses, harap tunggu....')
-with st.container(border=True):
-    st.subheader("Konfigurasi Basin")
-    col1, col2 = st.columns(2)
-    with col1:
-        fungsi = st.radio(
-            "Fungsi",
-            [
-                r"$x^4-1$",
-                r"$x^4+1$"
-            ]
-        )
-    with col2:
-        metode = st.radio(
-            "Metode",
-            [
-                "Newton",
-                "AM-GM Newton"
-            ]
-        )
 
-    proses = st.button(
-        "Proses Basin",
-        use_container_width=True
-    )
     
 # simulasi
-itmax=40
+itmax=100
 tolmax=1e-30
 # Mendefinisikan area
 a=-1.5
@@ -85,7 +70,7 @@ with st.container(border=True):
             "Fungsi",
             [
                 r"$z^4-1$",
-                r"$z^4+1$"
+                r"$z^6-1$"
             ]
         )
     with col2:
@@ -93,11 +78,36 @@ with st.container(border=True):
             "Metode",
             [
                 "Newton",
-                "AM-GM"
+                "AM-Newton",
+                "GM-Newton",
             ]
         )
 
-
+#--- proses 
+if st.button("Proses Basin"):
+    # pilih fungsi
+    if fungsi == r"$z^4-1$":
+        f=f2
+        df=df2
+        akar=akar2
+    else:
+        f=f1
+        df=df1
+        akar=akar1
+    # metode
+    if metode == "Newton":
+        sol,waktu=newton_basin_func(f,df,a,b,n,tolmax,itmax)
+    elif metode=="AM-Newton":
+        sol,waktu=newton_am_basin_func(f,df,a,b,n,tolmax,itmax)
+    else:
+        sol,waktu=newton_gm_basin_func(f,df,a,b,n,tolmax,itmax)
+    
+    st.write('partisi = ',np.shape(sol))
+    st.write('waktu komputasi = ',waktu)
+    # gambar
+    # Memanggil fungsi gambar
+    domain=[a,b,a,b]
+    gambar(sol,n,akar,domain,tolmax)
     
     
   

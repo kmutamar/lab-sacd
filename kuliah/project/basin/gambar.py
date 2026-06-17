@@ -8,6 +8,7 @@ def gambar(x,n,akar,domain,tolmax):
     #for i in range(0,np.shape(akar)[0]):
     #    x2c[abs(x2-akar[i])<=tolmax]=i+1
     #x2c=np.reshape(x2c,[n,n])
+    st.write(np.shape(x))
     x2=np.reshape(x,[n*n])
     akar_np = np.array(akar)
     jarak = np.abs(x2[:,None] - akar_np[None,:])

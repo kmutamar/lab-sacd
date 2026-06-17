@@ -4,46 +4,22 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 
 def gambar(x,n,akar,domain,tolwarna=1e-8):
-
-    # ubah menjadi vektor
     x2 = x.ravel()
-
-    # daftar akar
     akar_np = np.array(akar)
-
-    # jarak setiap titik ke semua akar
-    jarak = np.abs(
-        x2[:,None] - akar_np[None,:]
-    )
-
+    jarak = np.abs(x2[:,None] - akar_np[None,:])
     # akar terdekat
-    idx = np.argmin(
-        jarak,
-        axis=1
-    )
-
+    idx = np.argmin(jarak,axis=1)
     # jarak minimum
-    mindist = np.min(
-        jarak,
-        axis=1
-    )
-
+    mindist = np.min(jarak,axis=1)
     # warna awal = 0
-    x2c = np.zeros(
-        len(x2),
-        dtype=int
-    )
+    x2c = np.zeros(len(x2),dtype=int)
 
     # hanya yang cukup dekat akar
     mask = mindist < tolwarna
-
     x2c[mask] = idx[mask] + 1
 
     # kembali ke matriks
-    x2c = np.reshape(
-        x2c,
-        [n,n]
-    )
+    x2c = np.reshape(x2c,[n,n])
 
     # colormap diskrit
     cmap = ListedColormap([

@@ -97,21 +97,7 @@ with st.container(border=True):
             ]
         )
 
-st.button("Proses Basin",use_container_width=True):
-    # pilih fungsi
-    if fungsi == r"$z^4-1$":
-        sol,waktu=newton_basin_func(f1,df1,a,b,n,tolmax,itmax)
-        akar=akar1
-    else:
-        sol,waktu=newton_basin_func(f2,df2,a,b,n,tolmax,itmax)
-        akar=akar2
-    
-st.write('partisi = ',np.shape(sol))
-st.write('waktu komputasi = ',waktu)
-# gambar
-# Memanggil fungsi gambar
-domain=[a,b,a,b]
-gambar(sol,n,akar,domain,tolmax)
+
     
     
   

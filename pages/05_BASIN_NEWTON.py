@@ -6,7 +6,8 @@ import time
 from config.setup_page import logo
 logo()
 
-from kuliah.project.basin.fungsi2 import f,df,akar
+from kuliah.project.basin.fungsi1 import f1,df1,akar1
+from kuliah.project.basin.fungsi2 import f2,df2,akar2
 from kuliah.project.basin.gambar import gambar
 from kuliah.project.basin.newton_basin import newton_basin_func
 
@@ -50,7 +51,36 @@ tolmax=1e-30
 a=-1.5
 b=1.5
 n=1000
-sol,waktu=newton_basin_func(f,df,a,b,n,tolmax,itmax)
+
+with st.container(border=True):
+    st.subheader("Konfigurasi Basin")
+    col1, col2 = st.columns(2)
+    with col1:
+        fungsi = st.radio(
+            "Fungsi",
+            [
+                r"$z^4-1$",
+                r"$z^4+1$"
+            ]
+        )
+    with col2:
+        metode = st.radio(
+            "Metode",
+            [
+                "Newton",
+                "AM-GM"
+            ]
+        )
+
+st.button("Proses Basin",use_container_width=True):
+    # pilih fungsi
+    if fungsi == r"$z^4-1$":
+        sol,waktu=newton_basin_func(f1,df1,a,b,n,tolmax,itmax)
+        akar=akar1
+    else:
+        sol,waktu=newton_basin_func(f2,df2,a,b,n,tolmax,itmax)
+        akar=akar2
+    
 st.write('partisi = ',np.shape(sol))
 st.write('waktu komputasi = ',waktu)
 # gambar

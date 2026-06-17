@@ -12,8 +12,8 @@ def gambar(x,n,akar,domain,tolmax):
     # tampil gambar
     fig, ax = plt.subplots(figsize=(6,4))
     ax.imshow(x2c,cmap='hsv',extent=domain)
-    ax.set_xlabel('Waktu')
-    ax.set_ylabel('Zakat')
+    ax.set_xlabel('$Re{(x)}$')
+    ax.set_ylabel('$Im{(x)}$')
     ax.grid(True)
     ax.legend()
     st.pyplot(fig)      

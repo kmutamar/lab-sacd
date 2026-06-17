@@ -18,6 +18,7 @@ from kuliah.project.basin.fungsi2 import (
     akar as akar2)
 from kuliah.project.basin.gambar import gambar
 from kuliah.project.basin.newton_basin import newton_basin_func
+from kuliah.project.basin.halley_basin import halley_basin_func
 from kuliah.project.basin.newton_GM_basin import newton_gm_basin_func
 from kuliah.project.basin.newton_AM_basin import newton_am_basin_func
 
@@ -102,6 +103,8 @@ if st.button("Proses Basin"):
     # metode
     if metode == "Newton":
         sol,waktu=newton_basin_func(f,df,a,b,n,tolmax,itmax)
+    elif metode=="Halley":
+        sol,waktu=halley_basin_func(f,df,a,b,n,tolmax,itmax)        
     elif metode=="AM-Newton":
         sol,waktu=newton_am_basin_func(f,df,a,b,n,tolmax,itmax)
     else:

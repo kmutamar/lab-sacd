@@ -6,7 +6,7 @@ logo()
 # Import halaman model
 # --------------------
 
-from riset.korupsi.sch import sch_show
+from riset.korupsi.sir import sir_show
 from riset.korupsi.sch_k import sch_k_show
 #from riset.korupsi.sch import show_sech
 #from riset.korupsi.sech import show_sech_k
@@ -16,10 +16,11 @@ from riset.korupsi.sch_k import sch_k_show
 # --------------------
 
 riset_model = {
+    "Epidemi": [
+        "SIR",
+    ],
 
     "Korupsi": [
-
-        "SCH",
         "SCH Kontrol",
         #"SECH",
         #"SECH Kontrol"
@@ -28,7 +29,6 @@ riset_model = {
     "Predator-Prey": [
         "Alley",
         "Alley+Kontrol"
-
     ],
 
     "Nonlinear Control": [
@@ -77,7 +77,7 @@ st.divider()
 # --------------------
 # Tampilkan model
 # --------------------
-if model == "SCH":
-    sch_show()
+if model == "SIR":
+    sir_show()
 elif model == "SCH Kontrol":
     sch_k_show()  

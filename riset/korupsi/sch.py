@@ -13,16 +13,16 @@ from metode.euler import euler
 from model.sir import sir
 
     
-def sch_show():
+def sir_show():
     #st.page_link("Home.py", label="🏠 Home")
-    st.title("Model Susceptible, Corrupt, Honest (SCH)")
+    st.title("Model Susceptible, Infected, Removed/Recovered (SIR)")
 
     tab1, tab2, tab3 = st.tabs(
         ["Teori", "Analisis", "Simulasi"]
     )
 
     with tab1:
-        st.header('Dalam pengembangan')
+        st.header('Teori Ringkas')
         st.markdown(""" Model Dasar Penyebaran Penyakit (SIR)""")
         st.latex(r'''
         \left\{

@@ -23,7 +23,7 @@ def sch_show():
 
     with tab1:
         st.header('Dalam pengembangan')
-        st.markdown(""" Model Dasar Penyebaran Perilaku Korup""")
+        st.markdown(""" Model Dasar Penyebaran Penyakit (SIR)""")
         st.latex(r'''
         \left\{
         \begin{array}{lcl}
@@ -44,26 +44,25 @@ def sch_show():
     """)
 
     with tab2:
-        st.header('Dalam pengembangan')
         st.header("Titik Ekuilibrium")
-        st.markdown(r""" Titik ekuilibrium bebas penyakit adalah
+        st.markdown(r""" Titik ekuilibrium bebas penyakit
         $$
-        x_e=\left(\dfrac{\Gamma}{\psi},0,0\right)
+        x_e=\left(N,0,0\right)
         $$
+        dengan $N=s(t)+i(t)+r(t)$ yang bernilai konstan.
            
         """)
         st.header("Bilangan Reproduksi")
-        st.markdown(r""" Bilangan reproduksi untuk masalah ini adalah
+        st.markdown(r""" Bilangan reproduksi model SIR
         $$
-        R_0=\dfrac{\kappa}{\mu(\beta+\mu)}
+        R_0=\dfrac{\beta}{\gamma}
         $$
            
         """)
-        st.header("Kestabilan DFE")
       
 
     with tab3:
-        st.header("Model SIR Dasar")
+        st.header("Simulasi Model SIR")
         tf=50
         t=np.linspace(0,tf,tf*int(1e2))
         #beta = st.number_input(r"$\beta$ = ",value=0.2)
@@ -88,6 +87,8 @@ def sch_show():
                 value=0.2,
                 step=0.01
             )
+        R0=beta/gamma
+        st.markdown(f"$R_0 = {R0:.4f}$")
         y=euler(sir,[s0,i0,r0],t,[beta,gamma])   
         #
         with col2:

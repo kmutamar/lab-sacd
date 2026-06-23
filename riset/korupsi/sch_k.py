@@ -95,7 +95,7 @@ def sch_k_show():
                 r"$t_f$",
                 min_value=1,
                 max_value=100,
-                value=10,
+                value=70,
                 step=1
             )
         t=np.linspace(0,tf,tf*int(1e2)) 

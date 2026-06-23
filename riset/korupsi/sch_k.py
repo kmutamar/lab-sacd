@@ -81,21 +81,21 @@ def sch_k_show():
                 r"$u_1$",
                 min_value=0.00,
                 max_value=1.00,
-                value=0.2,
+                value=0.25,
                 step=0.01
             )
             u2 = st.slider(
                 r"$u_2(t)$",
                 min_value=0.00,
                 max_value=1.00,
-                value=0.8,
+                value=0.46,
                 step=0.01
             )
             tf = st.slider(
                 r"$t_f$",
                 min_value=1,
                 max_value=100,
-                value=70,
+                value=75,
                 step=1
             )
         t=np.linspace(0,tf,tf*int(1e2)) 

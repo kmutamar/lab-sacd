@@ -6,7 +6,6 @@ logo()
 # Import halaman model
 # --------------------
 
-from riset.korupsi.sir import sir_show
 from riset.korupsi.sch_k import sch_k_show
 #from riset.korupsi.sch import show_sech
 #from riset.korupsi.sech import show_sech_k
@@ -17,10 +16,6 @@ from riset.korupsi.sch_k import sch_k_show
 
 riset_model = {
     "Epidemi": [
-        "SIR",
-    ],
-
-    "Korupsi": [
         "SCH Kontrol",
         #"SECH",
         #"SECH Kontrol"
@@ -77,7 +72,7 @@ st.divider()
 # --------------------
 # Tampilkan model
 # --------------------
-if model == "SIR":
-    sir_show()
-elif model == "SCH Kontrol":
+if model == "SCH Kontrol":
     sch_k_show()  
+#elif model == "SCH Kontrol":
+#    sch_k_show()  

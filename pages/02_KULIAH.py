@@ -75,9 +75,9 @@ materi = st.selectbox(
 st.divider()
 
 # --------------------
-# Tampilkan model
+# Tampilkan materi
 # --------------------
 if materi == "Newton":
     rf_newton_show()
-#elif model == "SCH Kontrol":
-#    show_sch_k()   
+elif materi == "SIR":
+    sir_show()   

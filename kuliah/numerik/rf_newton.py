@@ -13,21 +13,13 @@ from fungsi.fpt import f1 as f
 from fungsi.fpt import f1 as df
 print("LOADING materi newton...")
 
-
-
-
-
 def rf_newton_show():
     st.title("Metode Newton")
-    tab1, tab2, tab3 = st.tabs(
-        ["Overview", "Metode", "Simulasi"]
+    tab1, tab2 = st.tabs(
+        ["Teori", "Simulasi"]
     )
 
     with tab1:
-        st.title("Disini halaman ringkasan")
-        #st.write(newton)
-
-    with tab2:
         st.markdown(r""" 
         Diberikan fungsi $f(x)$. 
         Metode Newton untuk menentukan akar solusi $f(x)=0$ diberikan oleh
@@ -42,7 +34,7 @@ def rf_newton_show():
         2. Nilai turunan fungsi lebih kecil dari toleransi maksimum, $|f'(x_{n+1})|<\mathrm{tolmax}$
         """ )
 
-    with tab3:
+    with tab2:
         st.markdown("""
         Diberikan fungsi $f(x)=x^2-3x+2$ yang akar analitiknya adalah $x_1=1$ dan $x_2=2$. 
         Menggunakan metode Newton, akan ditentukan nilai akar secara numerik.

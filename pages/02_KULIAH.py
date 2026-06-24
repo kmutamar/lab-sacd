@@ -8,7 +8,7 @@ logo()
 # --------------------
 
 from kuliah.numerik.rf_newton import rf_newton_show
-
+from kuliah.pemodelan.sir import sir_show
 
 # --------------------
 # Database materi
@@ -31,6 +31,7 @@ kuliah = {
     ],
 
     "Pemodelan": [
+        "SIR",
         "Eksponensial",
         "Predator-Prey"
     ]
